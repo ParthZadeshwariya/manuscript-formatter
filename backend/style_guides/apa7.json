@@ -1,0 +1,34 @@
+{
+  "name": "APA 7th Edition",
+  "font": "Times New Roman",
+  "font_size": 12,
+  "line_spacing": "double",
+  "margins": "1 inch",
+  "title_page": {
+    "title_case": "title case",
+    "author_note": true,
+    "running_head": false
+  },
+  "abstract": {
+    "max_words": 250,
+    "label": "Abstract",
+    "keywords_label": "Keywords:"
+  },
+  "headings": {
+    "level1": "centered, bold, title case",
+    "level2": "left-aligned, bold, title case",
+    "level3": "left-aligned, bold italic, title case",
+    "level4": "indented, bold, title case, ends with period",
+    "level5": "indented, bold italic, title case, ends with period"
+  },
+  "citations": {
+    "format": "(Author, Year)",
+    "multiple_authors_3plus": "(Author et al., Year)",
+    "direct_quote": "(Author, Year, p. X)"
+  },
+  "references": {
+    "hanging_indent": true,
+    "doi_format": "https://doi.org/xxxxx",
+    "format_journal": "Author, A. A. (Year). Title. Journal Name, vol(issue), pages. DOI"
+  }
+}

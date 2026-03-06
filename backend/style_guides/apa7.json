@@ -1,34 +1,412 @@
 {
   "name": "APA 7th Edition",
-  "font": "Times New Roman",
-  "font_size": 12,
-  "line_spacing": "double",
-  "margins": "1 inch",
+  "source": "Purdue OWL - https://owl.purdue.edu/owl/research_and_citation/apa_style/apa_formatting_and_style_guide/",
+
+  "general_format": {
+    "paper_size": "8.5 x 11 inches",
+    "margins": "1 inch on all sides",
+    "font_options": [
+      "12pt Times New Roman",
+      "11pt Calibri",
+      "11pt Arial",
+      "10pt Lucida Sans Unicode",
+      "11pt Georgia",
+      "10pt Computer Modern"
+    ],
+    "font_note": "Font must be consistent throughout the entire paper. Check with publisher/instructor if unsure.",
+    "line_spacing": "double-spaced throughout, including title page, abstract, body, references",
+    "paragraph_indent": "0.5 inch for first line of every paragraph",
+    "alignment": "left-aligned (do not justify)",
+    "major_sections": ["Title Page", "Abstract", "Main Body", "References"]
+  },
+
   "title_page": {
-    "title_case": "title case",
-    "author_note": true,
-    "running_head": false
+    "student_paper": {
+      "elements": [
+        "Paper title (centered, bold, title case, upper half of page)",
+        "Author name(s) (centered, not bold)",
+        "Institutional affiliation",
+        "Course number and name",
+        "Instructor name",
+        "Assignment due date",
+        "Page number (top right header only)"
+      ],
+      "running_head": false,
+      "author_note": false
+    },
+    "professional_paper": {
+      "elements": [
+        "Paper title (centered, bold, title case, upper half of page)",
+        "Author name(s)",
+        "Institutional affiliation",
+        "Author note",
+        "Running head (all caps, flush left, max 50 characters including spaces)",
+        "Page number (flush right)"
+      ],
+      "running_head": true,
+      "running_head_format": "ALL CAPITALS, max 50 characters, no 'Running head:' label",
+      "author_note": {
+        "paragraph_1": "ORCID iD with URL for each author (omit authors without ORCID)",
+        "paragraph_2": "Any change in affiliation or deaths of authors",
+        "paragraph_3": "Disclosures: study registration, open practices, data sharing, conflicts of interest, financial support",
+        "paragraph_4": "Contact info for corresponding author"
+      }
+    },
+    "title_rules": {
+      "case": "Title Case (capitalize important words)",
+      "style": "bold",
+      "alignment": "centered",
+      "position": "upper half of page",
+      "max_lines": 2,
+      "avoid": ["abbreviations", "words that serve no purpose"]
+    },
+    "author_name_format": "First name, middle initial(s), last name — no titles (Dr.) or degrees (PhD)"
   },
+
   "abstract": {
-    "max_words": 250,
     "label": "Abstract",
-    "keywords_label": "Keywords:"
+    "label_format": "centered, bold, not italicized, no quotation marks",
+    "max_words": 250,
+    "indentation": "none (do not indent first line)",
+    "spacing": "double-spaced, single paragraph",
+    "new_page": true,
+    "required_content": [
+      "research topic",
+      "research questions",
+      "participants",
+      "methods",
+      "results",
+      "data analysis",
+      "conclusions"
+    ],
+    "optional_content": ["implications", "future work"],
+    "keywords": {
+      "label": "Keywords:",
+      "label_format": "italicized",
+      "indent": "0.5 inch (as new paragraph)",
+      "format": "lowercase, separated by commas"
+    },
+    "required_for": "scholarly journal articles; optional for student papers unless required by instructor"
   },
+
   "headings": {
-    "level1": "centered, bold, title case",
-    "level2": "left-aligned, bold, title case",
-    "level3": "left-aligned, bold italic, title case",
-    "level4": "indented, bold, title case, ends with period",
-    "level5": "indented, bold italic, title case, ends with period"
+    "general_rules": [
+      "All headings use title case (capitalize important words) in APA 7",
+      "All headings are bold in APA 7",
+      "Levels are distinguished by italics, indentation, and periods — not font size"
+    ],
+    "levels": {
+      "level_1": {
+        "format": "Centered, Bold, Title Case",
+        "italic": false,
+        "indent": false,
+        "end_with_period": false,
+        "text_starts": "new line below heading"
+      },
+      "level_2": {
+        "format": "Left-Aligned, Bold, Title Case",
+        "italic": false,
+        "indent": false,
+        "end_with_period": false,
+        "text_starts": "new line below heading"
+      },
+      "level_3": {
+        "format": "Left-Aligned, Bold Italic, Title Case",
+        "italic": true,
+        "indent": false,
+        "end_with_period": false,
+        "text_starts": "new line below heading"
+      },
+      "level_4": {
+        "format": "Indented, Bold, Title Case, ends with period",
+        "italic": false,
+        "indent": "0.5 inch",
+        "end_with_period": true,
+        "text_starts": "same line after period"
+      },
+      "level_5": {
+        "format": "Indented, Bold Italic, Title Case, ends with period",
+        "italic": true,
+        "indent": "0.5 inch",
+        "end_with_period": true,
+        "text_starts": "same line after period"
+      }
+    }
   },
-  "citations": {
-    "format": "(Author, Year)",
-    "multiple_authors_3plus": "(Author et al., Year)",
-    "direct_quote": "(Author, Year, p. X)"
+
+  "seriation": {
+    "numbered_lists": {
+      "use_when": "order or sequence matters",
+      "format": "Arabic numeral followed by period (1. 2. 3.)",
+      "content": "full sentences or paragraphs, not phrases",
+      "capitalization": "capitalize first word after each number",
+      "punctuation": "end each item with period"
+    },
+    "bulleted_lists": {
+      "use_when": "order does not matter",
+      "format": "bullet point",
+      "content": "can be phrases or sentences"
+    },
+    "inline_seriation": {
+      "format": "lowercase letters in parentheses: (a), (b), (c)",
+      "use_when": "listing within a sentence"
+    }
   },
-  "references": {
-    "hanging_indent": true,
-    "doi_format": "https://doi.org/xxxxx",
-    "format_journal": "Author, A. A. (Year). Title. Journal Name, vol(issue), pages. DOI"
-  }
+
+  "in_text_citations": {
+    "method": "author-date",
+    "basic_format": "(Author, Year)",
+    "signal_phrase_tense": "past tense or present perfect (e.g., Jones (1998) found / has found)",
+    
+    "by_author_count": {
+      "one_author": {
+        "parenthetical": "(Smith, 2020)",
+        "narrative": "Smith (2020)"
+      },
+      "two_authors": {
+        "parenthetical": "(Smith & Jones, 2020)",
+        "narrative": "Smith and Jones (2020)",
+        "note": "Use 'and' in narrative, '&' in parenthetical"
+      },
+      "three_or_more_authors": {
+        "parenthetical": "(Smith et al., 2020)",
+        "narrative": "Smith et al. (2020)",
+        "note": "APA 7 uses et al. from first citation for 3+ authors (changed from APA 6)"
+      },
+      "ambiguous_et_al": {
+        "note": "If et al. would create ambiguity (same first author, same year), list enough names to differentiate",
+        "example": "(Fannon, Chan, Ramirez, et al., 2019) vs (Fannon, Chan, Montego, et al., 2019)"
+      }
+    },
+
+    "direct_quotes": {
+      "short_under_40_words": {
+        "format": "In quotation marks, inline",
+        "citation": "(Author, Year, p. X) or (Author, Year, pp. X-Y)"
+      },
+      "long_40_or_more_words": {
+        "format": "Block quotation — new line, indented 0.5 inch from left margin, no quotation marks",
+        "citation": "Parenthetical citation after closing punctuation",
+        "spacing": "double-spaced, no extra blank lines before or after"
+      },
+      "no_page_number_sources": "Use paragraph number (para. 4), chapter, section, table, or other locator"
+    },
+
+    "paraphrase": {
+      "format": "(Author, Year)",
+      "page_number": "not required but recommended"
+    },
+
+    "special_cases": {
+      "group_author": "Spell out in full on first citation; abbreviate if commonly known (e.g., APA)",
+      "no_author": "Use title (italicized for books, in quotes for articles), truncated if long",
+      "no_date": "(Author, n.d.)",
+      "same_author_same_year": "Add letter suffix: (Smith, 2020a), (Smith, 2020b)",
+      "secondary_source": "Johnson argued... (as cited in Smith, 2003, p. 102) — only secondary source in reference list",
+      "personal_communication": "(E. Robbins, personal communication, January 4, 2001) — NOT in reference list",
+      "classical_works": "Include original publication year: (Plato, 385-378 BCE/1989)"
+    }
+  },
+
+  "reference_list": {
+    "general_rules": {
+      "label": "References",
+      "label_format": "centered, bold",
+      "new_page": true,
+      "spacing": "double-spaced throughout",
+      "hanging_indent": "0.5 inch",
+      "alphabetize_by": "first author last name",
+      "same_author_multiple_works": "list chronologically, earliest first",
+      "same_author_same_year": "alphabetize by title, add letter suffix (2020a, 2020b)"
+    },
+
+    "author_rules": {
+      "format": "Last name, Initials.",
+      "separator": "commas between authors, & before last author",
+      "up_to_20_authors": "list all — new in APA 7 (was 6 in APA 6)",
+      "21_or_more_authors": "List first 19, then ellipsis (...), then final author name — no & before last",
+      "no_author": "Move title to author position",
+      "anonymous": "Use 'Anonymous' only if work is signed Anonymous"
+    },
+
+    "title_rules": {
+      "books_reports_webpages": "Sentence case — capitalize only first word, first word after colon/dash, proper nouns",
+      "journal_names": "Title Case — capitalize all major words",
+      "journal_articles": "Sentence case for article title",
+      "italicize": ["book titles", "journal names", "report titles", "website names"],
+      "do_not_italicize": ["article titles", "chapter titles"]
+    },
+
+    "doi_url_rules": {
+      "format": "Presented as hyperlink: https://doi.org/xxxxx",
+      "label": "No 'DOI:' label in APA 7 (removed from APA 6)",
+      "retrieved_from": "Only use 'Retrieved from' when retrieval date is also needed (changeable content)",
+      "prefer_doi_over_url": true,
+      "include_doi_even_for_print": true
+    },
+
+    "formats_by_source_type": {
+      "journal_article": {
+        "template": "Author, A. A., & Author, B. B. (Year). Title of article. Journal Name, volume(issue), page–page. https://doi.org/xxxxx",
+        "example": "Soto, C. J., & John, O. P. (2017). The next big five inventory. Journal of Personality and Social Psychology, 113(1), 117–143."
+      },
+      "journal_article_no_doi": {
+        "template": "Author, A. A. (Year). Title of article. Journal Name, volume(issue), page–page. URL"
+      },
+      "book": {
+        "template": "Author, A. A. (Year). Title of work: Subtitle. Publisher. https://doi.org/xxxxx",
+        "example": "Belcher, W. (2019). Writing your journal article in twelve weeks (2nd ed.). University of Chicago Press."
+      },
+      "book_chapter": {
+        "template": "Author, A. A. (Year). Title of chapter. In E. Editor (Ed.), Title of book (pp. XX–XX). Publisher. https://doi.org/xxxxx"
+      },
+      "edited_book": {
+        "template": "Editor, E. E. (Ed.). (Year). Title of work. Publisher."
+      },
+      "translated_book": {
+        "template": "Author, A. A. (Year). Title (T. Translator, Trans.). Publisher. (Original work published YEAR)",
+        "in_text": "Cite with both dates: (Plato, 385-378 BCE/1989)"
+      },
+      "report": {
+        "template": "Author, A. A. (Year). Title of report. Publisher/Organization. URL"
+      },
+      "webpage": {
+        "template": "Author, A. A. (Year, Month Day). Title of page. Site Name. URL",
+        "no_date": "Author, A. A. (n.d.). Title of page. Site Name. URL",
+        "changeable_content": "Add 'Retrieved Month Day, Year, from URL'"
+      },
+      "newspaper_article_online": {
+        "template": "Author, A. A. (Year, Month Day). Title of article. Newspaper Name. URL",
+        "note": "Do not italicize article title; italicize newspaper name"
+      },
+      "wikipedia": {
+        "note": "Treated as reference work entry, not generic webpage",
+        "template": "Title of article. (Year, Month Day). In Wikipedia. URL of archived version"
+      }
+    }
+  },
+
+  "footnotes_and_appendices": {
+    "footnotes": {
+      "types": ["content notes", "copyright permission notes"],
+      "placement": "bottom of page OR endnotes section",
+      "format": "superscript number in text, matching number at bottom of page",
+      "use_for": "supplementary details that would interrupt flow if in body",
+      "spacing": "double-spaced"
+    },
+    "appendices": {
+      "label": "Appendix A, Appendix B (if multiple)",
+      "placement": "after reference list",
+      "label_format": "centered, bold",
+      "use_for": "detailed materials, instruments, or data not suitable for body"
+    }
+  },
+
+  "tables": {
+    "numbering": "Arabic numerals, in order mentioned in text (Table 1, Table 2...)",
+    "number_format": "bold, left-aligned",
+    "title_format": "italic, title case, left-aligned, on line below number",
+    "borders": "top and bottom of table, below column headings, above table spanners — no vertical borders",
+    "spacing": "double for number/title/notes; single, 1.5, or double for body",
+    "stub_column": "left-aligned entries beneath centered stub heading",
+    "notes": {
+      "order": "General note → Specific note → Probability note",
+      "general": "Note. Explanation of abbreviations, symbols, or overall context",
+      "specific": "Superscript lowercase letters (a, b, c); first footnote always superscript a",
+      "probability": "Asterisks for significance levels; consistent use throughout paper"
+    },
+    "abbreviations": "All abbreviations must be explained in notes"
+  },
+
+  "figures": {
+    "numbering": "Arabic numerals, in order mentioned in text (Figure 1, Figure 2...)",
+    "number_format": "bold, left-aligned",
+    "title_format": "italic, title case, left-aligned, on line below number",
+    "font_in_figure": "sans serif, 8–14pt",
+    "legend": "appears within or below image, words in title case",
+    "notes": "same order as tables: general, specific, probability",
+    "notes_format": "double-spaced, left-aligned, same font as paper",
+    "permission": "written permission required for reuse; credit given in caption"
+  },
+
+  "numbers_and_statistics": {
+    "use_words_for": [
+      "numbers zero through nine (when not before a unit of measurement)",
+      "numbers that begin a sentence",
+      "common fractions (one-half)"
+    ],
+    "use_numerals_for": [
+      "numbers 10 and above",
+      "numbers before units of measurement (4 km, 5 mg)",
+      "numbers in abstracts and tables",
+      "numbers representing time, dates, ages, scores",
+      "numbers in a series when any is 10 or above"
+    ],
+    "statistics": {
+      "italicize": ["N", "n", "M", "SD", "p", "t", "F", "r", "df"],
+      "decimal_places": "2 for most statistics",
+      "p_values": "report exact values (p = .032) not just p < .05 unless below .001",
+      "effect_sizes": "always report alongside inferential statistics"
+    }
+  },
+
+  "abbreviations": {
+    "define_on_first_use": "Write out in full first time, then abbreviate: American Psychological Association (APA)",
+    "latin_abbreviations": {
+      "cf.": "compare — use in parenthetical only",
+      "e.g.,": "for example — use in parenthetical only",
+      "etc.": "and so forth",
+      "i.e.,": "that is — use in parenthetical only",
+      "viz.,": "namely"
+    },
+    "do_not_use_in_text": ["e.g.", "i.e.", "cf."] 
+  },
+
+  "stylistics": {
+    "bias_free_language": {
+      "person_first": "prefer 'a man with epilepsy' over 'an epileptic'",
+      "singular_they": "use 'they/them' for unknown or nonbinary gender — APA 7 endorsed",
+      "avoid": "adjectives used as nouns for groups (e.g., 'the poor' → 'people living in poverty')",
+      "specificity": "use specific labels over general ones"
+    },
+    "verb_tense": {
+      "literature_review": "past tense or present perfect (found, has found)",
+      "discussion_of_results": "past tense",
+      "conclusions": "present tense"
+    },
+    "voice": "active voice preferred",
+    "first_person": "acceptable and encouraged in APA 7"
+  },
+
+  "running_head": {
+    "student_papers": "NOT required in APA 7",
+    "professional_papers": {
+      "required": true,
+      "format": "ALL CAPITAL LETTERS",
+      "max_characters": 50,
+      "placement": "flush left in header",
+      "page_number": "flush right in header",
+      "label": "No 'Running head:' label — removed in APA 7",
+      "content": "identical to paper title or meaningful shortened version"
+    }
+  },
+
+  "page_numbers": {
+    "placement": "top right of every page including title page",
+    "student_paper": "page number only",
+    "professional_paper": "running head (left) + page number (right)"
+  },
+
+  "key_changes_from_apa6": [
+    "et al. used from first citation for 3+ authors (was 6+ in APA 6)",
+    "Up to 20 authors listed in references (was 6 in APA 6)",
+    "Running head not required for student papers",
+    "'Running head:' label removed from professional papers",
+    "DOIs formatted as hyperlinks, 'DOI:' label removed",
+    "'Retrieved from' only used when retrieval date is included",
+    "Singular 'they' endorsed",
+    "Level 3–5 headings updated (all now bold, title case)",
+    "Separate title page formats for student vs professional papers",
+    "Font options expanded beyond Times New Roman"
+  ]
 }

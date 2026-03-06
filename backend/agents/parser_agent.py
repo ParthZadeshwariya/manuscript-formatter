@@ -1,7 +1,7 @@
 # Document parsing node
-from tools.docx_tools import extract_docx
-from tools.pdf_tools import extract_pdf
-from models.state import ManuscriptState
+from backend.tools.docx_tools import extract_docx
+from backend.tools.pdf_tools import extract_pdf
+from backend.models.state import ManuscriptState
 
 def parser_node(state: ManuscriptState) -> ManuscriptState:
     """Extracts raw text from uploaded file."""
@@ -9,7 +9,7 @@ def parser_node(state: ManuscriptState) -> ManuscriptState:
     file_type = state["file_type"]
 
     if file_type == "docx":
-        raw_text = extract_docx(file_path)
+        raw_text = extract_docx(file_path)  
     elif file_type == "pdf":
         raw_text = extract_pdf(file_path)
     else:

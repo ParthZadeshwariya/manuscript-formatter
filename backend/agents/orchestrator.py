@@ -1,13 +1,13 @@
 # LangGraph main graph
 from langgraph.graph import StateGraph, END
-from models.state import ManuscriptState
-from agents.parser_agent import parser_node
-from agents.structure_agent import structure_node
-from agents.style_agent import style_loader_node
-from agents.formatter_agent import formatter_node
-from agents.citation_agent import citation_node
-from agents.scorer_agent import scorer_node
-from tools.docx_tools import write_docx
+from backend.models.state import ManuscriptState
+from backend.agents.parser_agent import parser_node
+from backend.agents.structure_agent import structure_node
+from backend.agents.style_agent import style_loader_node
+from backend.agents.formatter_agent import formatter_node
+from backend.agents.citation_agent import citation_node
+from backend.agents.scorer_agent import scorer_node
+from backend.tools.docx_tools import write_docx
 import uuid, os
 
 def output_node(state):

@@ -4,27 +4,80 @@ from langchain_core.prompts import ChatPromptTemplate
 import json, re
 
 llm = ChatGoogleGenerativeAI(model="gemini-2.5-flash", temperature=0)
-# guardrailing needed here for structured output, llm.with_structured_output()
 
 FORMAT_PROMPT = ChatPromptTemplate.from_messages([
     ("system", """You are an expert academic manuscript formatter.
 You will receive:
 1. Extracted manuscript sections (JSON)
-2. Style guide rules (JSON)
+2. A detailed style guide rules object (JSON)
 
-Your job: Transform each section to comply with the style guide rules.
+The style guide JSON has these sections you MUST use:
+- general_format       → font, spacing, margins, indentation, alignment
+- title_page           → title format, author format, student vs professional rules
+- abstract             → max_words, label format, keywords format
+- headings.levels      → exact format for level_1 through level_5
+- in_text_citations    → by_author_count rules, direct_quotes, special_cases
+- reference_list       → author_rules, title_rules, doi_url_rules, formats_by_source_type
+- numbers_and_statistics → when to use words vs numerals, how to italicize stats
+- abbreviations        → first-use rule, latin abbreviations
+- stylistics           → verb tense, voice, bias-free language
 
-Return a JSON object with the same structure as input sections but with:
-- Headings reformatted per style rules
-- Abstract trimmed/labeled correctly  
-- References reformatted to match style
-- In-text citations normalized to style format
-- Title casing applied correctly
+Your job: Transform each section to comply with ALL applicable rules above.
 
-For each change, add a "changes" key with list of {{field, original, corrected, reason}}.
-Return ONLY valid JSON."""),
+Specifically:
+- Reformat headings to match the exact level format (bold, italic, indent, period rules)
+- Ensure abstract label is centered and bold, trim to 250 words max, format keywords correctly
+- Normalize all in-text citations:
+    * 1 author: (Smith, 2020)
+    * 2 authors: (Smith & Jones, 2020) in parenthetical, 'and' in narrative
+    * 3+ authors: (Smith et al., 2020) from FIRST citation
+    * Direct quotes under 40 words: add page number (Smith, 2020, p. X)
+    * Direct quotes 40+ words: block quote format, indented 0.5 inch, no quotes
+- Reformat all references using hanging indent, sentence case for titles,
+  title case for journal names, DOI as https://doi.org/xxxxx hyperlink format
+- Apply correct verb tense: past/present perfect in lit review, past in results,
+  present in conclusions
+- Flag any numbers that should be words (zero through nine) or vice versa
+- Flag latin abbreviations (e.g., i.e.) used outside parentheses
+
+Return a JSON object with the SAME keys as the input sections, but with corrected content.
+Also add a top-level "changes" key: list of objects with keys:
+  {{
+    "field": "which section/field was changed",
+    "original": "original text (truncated to 100 chars)",
+    "corrected": "corrected text (truncated to 100 chars)",
+    "rule": "which style rule was applied",
+    "reason": "plain English explanation"
+  }}
+
+Return ONLY valid JSON. No explanation, no markdown, no code fences.
+Start your response with {{ and end with }}."""),
     ("human", "Sections:\n{sections}\n\nStyle Rules:\n{style_rules}")
 ])
+
+
+def safe_parse_json(text: str) -> dict:
+    """Robust JSON parser that handles common LLM output issues."""
+    # Strip markdown fences
+    text = re.sub(r"```json|```", "", text).strip()
+
+    # Try direct parse
+    try:
+        return json.loads(text)
+    except json.JSONDecodeError:
+        pass
+
+    # Try extracting first complete {...} block
+    match = re.search(r'\{.*\}', text, re.DOTALL)
+    if match:
+        try:
+            return json.loads(match.group())
+        except json.JSONDecodeError:
+            pass
+
+    print(f"  ⚠️  JSON parse failed in formatter. Raw output (first 500 chars):\n{text[:500]}")
+    return {}
+
 
 def formatter_node(state):
     chain = FORMAT_PROMPT | llm
@@ -32,9 +85,6 @@ def formatter_node(state):
         "sections": json.dumps(state["sections"], indent=2),
         "style_rules": json.dumps(state["style_rules"], indent=2)
     })
-    
-    text = result.content.strip()
-    text = re.sub(r"```json|```", "", text).strip()
-    formatted = json.loads(text)
-    
+
+    formatted = safe_parse_json(result.content.strip())
     return {**state, "formatted_sections": formatted}

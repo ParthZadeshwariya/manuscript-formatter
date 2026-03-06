@@ -3,7 +3,7 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_core.prompts import ChatPromptTemplate
 import json, re
 
-llm = ChatGoogleGenerativeAI(model="gemini-2.5-flash", temperature=0)
+llm = ChatGoogleGenerativeAI(model="gemini-3.1-flash-lite-preview", temperature=0)
 
 FORMAT_PROMPT = ChatPromptTemplate.from_messages([
     ("system", """You are an expert academic manuscript formatter.
@@ -56,6 +56,17 @@ Start your response with {{ and end with }}."""),
 ])
 
 
+def extract_content(result) -> str:
+    """Handles both string and list content blocks from different Gemini models."""
+    content = result.content
+    if isinstance(content, list):
+        return " ".join(
+            block.get("text", "") if isinstance(block, dict) else str(block)
+            for block in content
+        ).strip()
+    return str(content).strip()
+
+
 def safe_parse_json(text: str) -> dict:
     """Robust JSON parser that handles common LLM output issues."""
     # Strip markdown fences
@@ -80,11 +91,28 @@ def safe_parse_json(text: str) -> dict:
 
 
 def formatter_node(state):
+    # Only send relevant style rules to save tokens
+    style_rules = state["style_rules"]
+    relevant_rules = {
+        "general_format":         style_rules.get("general_format"),
+        "title_page":             style_rules.get("title_page"),
+        "abstract":               style_rules.get("abstract"),
+        "headings":               style_rules.get("headings"),
+        "in_text_citations":      style_rules.get("in_text_citations"),
+        "reference_list":         style_rules.get("reference_list"),
+        "numbers_and_statistics": style_rules.get("numbers_and_statistics"),
+        "abbreviations":          style_rules.get("abbreviations"),
+        "stylistics":             style_rules.get("stylistics"),
+    }
+
     chain = FORMAT_PROMPT | llm
     result = chain.invoke({
-        "sections": json.dumps(state["sections"], indent=2),
-        "style_rules": json.dumps(state["style_rules"], indent=2)
+        "sections":    json.dumps(state["sections"], indent=2),
+        "style_rules": json.dumps(relevant_rules, indent=2)
     })
 
-    formatted = safe_parse_json(result.content.strip())
+    # Extract text safely, then parse JSON — no double stripping
+    text = extract_content(result)
+    formatted = safe_parse_json(text)
+
     return {**state, "formatted_sections": formatted}

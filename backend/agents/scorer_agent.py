@@ -3,7 +3,7 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_core.prompts import ChatPromptTemplate
 import json, re
 
-llm = ChatGoogleGenerativeAI(model="gemini-2.5-flash", temperature=0)
+llm = ChatGoogleGenerativeAI(model="gemini-3.1-flash-lite-preview", temperature=0)
 
 SCORE_PROMPT = ChatPromptTemplate.from_messages([
     ("system", """You are a manuscript compliance evaluator.
@@ -37,7 +37,8 @@ Weight the overall_score as follows:
 - Verb Tense: 2%
 - Bias-Free Language: 1%
 
-Return ONLY this JSON — no explanation, no markdown, no code fences:
+Return ONLY this JSON — no explanation, no markdown, no code fences.
+Start your response with {{ and end with }}:
 {{
   "overall_score": 0-100,
   "breakdown": [
@@ -61,6 +62,17 @@ Citation report:
 ])
 
 
+def extract_content(result) -> str:
+    """Handles both string and list content blocks from different Gemini models."""
+    content = result.content
+    if isinstance(content, list):
+        return " ".join(
+            block.get("text", "") if isinstance(block, dict) else str(block)
+            for block in content
+        ).strip()
+    return str(content).strip()
+
+
 def safe_parse_json(text: str) -> dict:
     text = re.sub(r"```json|```", "", text).strip()
     try:
@@ -80,19 +92,32 @@ def safe_parse_json(text: str) -> dict:
 def scorer_node(state):
     chain = SCORE_PROMPT | llm
 
-    # Truncate sections to avoid token overflow — keep most important parts
+    # Exclude change log and truncate to avoid token overflow
     sections = state.get("formatted_sections", {})
     sections_truncated = {
-        k: v for k, v in sections.items() if k != "changes"  # exclude change log
+        k: v for k, v in sections.items() if k != "changes"
+    }
+
+    # Only send relevant style rule sections to save tokens
+    style_rules = state.get("style_rules", {})
+    relevant_rules = {
+        "headings":              style_rules.get("headings"),
+        "abstract":              style_rules.get("abstract"),
+        "in_text_citations":     style_rules.get("in_text_citations"),
+        "reference_list":        style_rules.get("reference_list"),
+        "general_format":        style_rules.get("general_format"),
+        "numbers_and_statistics": style_rules.get("numbers_and_statistics"),
     }
 
     result = chain.invoke({
-        "sections": json.dumps(sections_truncated, indent=2)[:4000],
-        "style_rules": json.dumps(state["style_rules"], indent=2)[:3000],
+        "sections":       json.dumps(sections_truncated, indent=2)[:4000],
+        "style_rules":    json.dumps(relevant_rules, indent=2)[:3000],
         "citation_report": json.dumps(state.get("citation_report", {}), indent=2)
     })
 
-    scoring = safe_parse_json(result.content.strip())
+    # Extract text safely, then parse — no result.content.strip() directly
+    text = extract_content(result)
+    scoring = safe_parse_json(text)
 
     return {
         **state,

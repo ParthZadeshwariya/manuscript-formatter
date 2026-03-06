@@ -3,7 +3,7 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_core.prompts import ChatPromptTemplate
 import json, re
 
-llm = ChatGoogleGenerativeAI(model="gemini-2.5-flash", temperature=0)
+llm = ChatGoogleGenerativeAI(model="gemini-3.1-flash-lite-preview", temperature=0)
 
 CITATION_PROMPT = ChatPromptTemplate.from_messages([
     ("system", """You are a citation consistency checker for academic manuscripts.
@@ -40,7 +40,8 @@ Your tasks:
    - Article/book titles in sentence case
    - Hanging indent required
 
-Return ONLY this JSON structure — no explanation, no markdown:
+Return ONLY this JSON structure — no explanation, no markdown, no code fences.
+Start your response with {{ and end with }}:
 {{
   "missing_references": ["exact citation string from text that has no matching reference"],
   "uncited_references": ["exact reference string never cited in text"],
@@ -65,18 +66,36 @@ Style rules (references section): {reference_rules}""")
 ])
 
 
+def extract_content(result) -> str:
+    """Handles both string and list content blocks from different Gemini models."""
+    content = result.content
+    if isinstance(content, list):
+        return " ".join(
+            block.get("text", "") if isinstance(block, dict) else str(block)
+            for block in content
+        ).strip()
+    return str(content).strip()
+
+
 def safe_parse_json(text: str) -> dict:
+    """Robust JSON parser — handles markdown fences and partial responses."""
+    # Strip markdown fences
     text = re.sub(r"```json|```", "", text).strip()
+
+    # Try direct parse
     try:
         return json.loads(text)
     except json.JSONDecodeError:
         pass
+
+    # Try extracting first complete {...} block
     match = re.search(r'\{.*\}', text, re.DOTALL)
     if match:
         try:
             return json.loads(match.group())
         except json.JSONDecodeError:
             pass
+
     print(f"  ⚠️  JSON parse failed in citation agent. Raw (first 500 chars):\n{text[:500]}")
     return {
         "missing_references": [],
@@ -100,5 +119,10 @@ def citation_node(state):
         "reference_rules": json.dumps(style_rules.get("reference_list", {}), indent=2)
     })
 
-    report = safe_parse_json(result.content.strip())
+    # Extract text safely regardless of model response format
+    text = extract_content(result)
+
+    # Parse JSON from the extracted text
+    report = safe_parse_json(text)
+
     return {**state, "citation_report": report}

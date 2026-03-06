@@ -3,7 +3,7 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_core.prompts import ChatPromptTemplate
 import json, re
 
-llm = ChatGoogleGenerativeAI(model="gemini-2.5-flash", temperature=0)
+llm = ChatGoogleGenerativeAI(model="gemini-3.1-flash-lite-preview", temperature=0)
 
 # guardrailing needed here for structured output, llm.with_structured_output()
 
@@ -25,12 +25,22 @@ Return ONLY valid JSON. No explanation."""),
     ("human", "Manuscript:\n{raw_text}")
 ])
 
+def extract_content(result) -> str:
+    content = result.content
+    if isinstance(content, list):
+        # Extract text from all content blocks and join
+        return " ".join(
+            block.get("text", "") if isinstance(block, dict) else str(block)
+            for block in content
+        ).strip()
+    return content.strip()
+
 def structure_node(state):
     chain = STRUCTURE_PROMPT | llm
     result = chain.invoke({"raw_text": state["raw_text"]})
     
     # Safely parse JSON
-    text = result.content.strip()
+    text = extract_content(result)
     text = re.sub(r"```json|```", "", text).strip()
     sections = json.loads(text)
     

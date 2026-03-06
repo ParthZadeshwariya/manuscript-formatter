@@ -1,10 +1,11 @@
 # FastAPI entry point
 from fastapi import FastAPI, UploadFile, File, Form, HTTPException
-from fastapi.responses import FileResponse, JSONResponse
+from fastapi.responses import FileResponse, JSONResponse, StreamingResponse
 from fastapi.middleware.cors import CORSMiddleware
 from backend.agents.orchestrator import manuscript_graph
-import shutil, os, uuid, time, json
+import shutil, os, uuid, time, json, io
 from datetime import datetime
+from urllib.parse import quote
 
 app = FastAPI(
     title="Manuscript Formatter API",
@@ -21,7 +22,7 @@ app.add_middleware(
 
 # ── Constants ────────────────────────────────────────────────────────────────
 ALLOWED_EXTENSIONS = {"txt", "pdf", "docx"}
-ALLOWED_STYLE_GUIDES = {"APA7", "MLA9", "Chicago"}
+ALLOWED_STYLE_GUIDES = {"APA7", "MLA9", "CHICAGO"}
 MAX_FILE_SIZE_MB = 10
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -220,36 +221,60 @@ async def format_manuscript(
             "citation_report": {},
             "compliance_score": 0.0,
             "compliance_report": [],
-            "output_docx_path": "",
+            "output_docx_bytes": None,
             "errors": []
         }
 
         result = manuscript_graph.invoke(initial_state)
         elapsed = round(time.time() - start_time, 1)
 
-        # ── Build download URL ──
-        output_path = result.get("output_docx_path", "")
-        output_filename = os.path.basename(output_path) if output_path else None
+        docx_bytes = result.get("output_docx_bytes")
+        if not docx_bytes:
+            raise HTTPException(status_code=500, detail="Pipeline did not produce an output document.")
 
-        return JSONResponse({
-            "success": True,
-            "processing_time_seconds": elapsed,
-            "style_guide": style_guide.upper(),
-            "original_filename": file.filename,
-            "output_filename": output_filename,
-            "download_url": f"/download/{output_filename}" if output_filename else None,
-            "compliance_score": result.get("compliance_score", 0),
-            "compliance_report": result.get("compliance_report", []),
-            "citation_report": result.get("citation_report", {}),
-            "changes": result.get("formatted_sections", {}).get("changes", []),
-            "errors": result.get("errors", [])
-        })
+        # ── Build a safe download filename ──
+        base_name = os.path.splitext(file.filename)[0] if file.filename else "manuscript"
+        download_name = f"{base_name}_formatted.docx"
 
+        # ── Encode metadata into headers (values must be ASCII-safe) ──
+        compliance_score = result.get("compliance_score", 0)
+        compliance_report = result.get("compliance_report", [])
+        citation_report   = result.get("citation_report", {})
+        errors            = result.get("errors", [])
+        changes           = result.get("formatted_sections", {}).get("changes", [])
+
+        headers = {
+            "Content-Disposition": f'attachment; filename*=UTF-8\'\'{quote(download_name)}',
+            "X-Processing-Time":   str(elapsed),
+            "X-Style-Guide":       style_guide.upper(),
+            "X-Original-Filename": quote(file.filename or ""),
+            "X-Download-Name":     quote(download_name),
+            "X-Compliance-Score":  str(round(compliance_score, 2)),
+            "X-Compliance-Report": json.dumps(compliance_report),
+            "X-Citation-Report":   json.dumps(citation_report),
+            "X-Changes":           json.dumps(changes),
+            "X-Errors":            json.dumps(errors),
+            # Required so the browser lets JS read custom headers
+            "Access-Control-Expose-Headers": (
+                "X-Processing-Time, X-Style-Guide, X-Original-Filename, "
+                "X-Download-Name, X-Compliance-Score, X-Compliance-Report, "
+                "X-Citation-Report, X-Changes, X-Errors"
+            ),
+        }
+
+        return StreamingResponse(
+            io.BytesIO(docx_bytes),
+            media_type="application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            headers=headers,
+        )
+
+    except HTTPException:
+        raise
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Pipeline error: {str(e)}")
 
     finally:
-        # Clean up temp file
+        # Always clean up the temp upload file
         if os.path.exists(tmp_path):
             os.remove(tmp_path)
 

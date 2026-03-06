@@ -41,8 +41,5 @@ export default function App() {
 }
 
 function FooterWrapper() {
-  const { pathname } = useLocation();
-  // Hide footer on formatter page for cleaner UX
-  if (pathname === '/format') return null;
   return <Footer />;
 }

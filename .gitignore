@@ -1,7 +1,7 @@
 # Environment & Agent
 /.env
 /.agent
-
+backend/agents/.env
 # Logs
 logs
 *.log

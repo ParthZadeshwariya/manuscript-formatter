@@ -25,5 +25,5 @@ class ManuscriptState(TypedDict):
     compliance_report: List[Dict]
 
     # Final
-    output_docx_path: str
+    output_docx_bytes: Optional[bytes]
     errors: List[str]

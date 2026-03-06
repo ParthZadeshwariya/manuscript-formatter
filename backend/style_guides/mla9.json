@@ -1,0 +1,368 @@
+{
+  "name": "MLA 9th Edition",
+  "source": "Purdue OWL - https://owl.purdue.edu/owl/research_and_citation/mla_style/mla_formatting_and_style_guide/",
+  "discipline": "Liberal arts and humanities",
+
+  "general_format": {
+    "paper_size": "8.5 x 11 inches, white",
+    "font": "Legible font e.g. Times New Roman — regular and italics must contrast clearly",
+    "font_size": "12pt",
+    "line_spacing": "double-spaced throughout — entire paper including Works Cited",
+    "margins": "1 inch on all sides",
+    "paragraph_indent": "0.5 inch for first line of every paragraph (use Tab key)",
+    "spaces_after_punctuation": "one space after periods and other punctuation marks",
+    "page_numbers": {
+      "format": "Last name + space + page number",
+      "placement": "upper right-hand corner, 0.5 inch from top, flush right",
+      "note": "Instructor may ask to omit number on first page — always follow instructor guidelines"
+    },
+    "italics_usage": "Use italics for titles of longer/container works; use only when absolutely necessary for emphasis"
+  },
+
+  "title_page": {
+    "required": false,
+    "note": "Do NOT make a title page unless specifically requested or it is a group project",
+    "group_project": "List all contributor names each on its own line in the header, followed by remaining MLA header info",
+    "first_page_header": {
+      "placement": "upper left-hand corner of first page",
+      "elements_in_order": [
+        "Your name",
+        "Instructor's name",
+        "Course name/number",
+        "Date (Day Month Year format, e.g. 15 March 2024)"
+      ],
+      "spacing": "double-spaced"
+    },
+    "paper_title": {
+      "placement": "centered, on line after date",
+      "case": "Title Case (standard capitalization)",
+      "format": "plain — do NOT underline, italicize, bold, or put in quotation marks",
+      "referring_to_other_works": "Use quotation marks and/or italics for other works referenced in title",
+      "spacing": "double space between title and first line of text"
+    }
+  },
+
+  "headings": {
+    "general_note": "MLA has no strictly prescribed heading system. Consistency is the key requirement.",
+    "essays": {
+      "recommended_format": "Arabic numeral + period + space + section name",
+      "example": "1. Early Writings  2. The London Years  3. Final Years"
+    },
+    "books": {
+      "note": "No prescribed system. Headings must be grammatically consistent at each level.",
+      "rule": "If headings are short phrases, all headings at that level must be short phrases (not full sentences)"
+    },
+    "sample_formatted_levels": {
+      "level_1": "Bold, flush left",
+      "level_2": "Italics, flush left",
+      "level_3": "Centered, bold",
+      "level_4": "Centered, italics",
+      "level_5": "Underlined, flush left"
+    },
+    "sample_numbered_levels": {
+      "level_1": "1. Heading",
+      "level_2": "1.1 Sub-heading",
+      "level_3": "1.2 Sub-heading"
+    },
+    "key_rule": "Whatever system you choose, it must be consistent throughout the entire document"
+  },
+
+  "in_text_citations": {
+    "method": "author-page",
+    "description": "Author's last name and page number — no comma between them",
+    "basic_formats": {
+      "signal_phrase": "Author named in sentence → page number only in parentheses: Wordsworth stated... (263).",
+      "parenthetical": "Author NOT named → last name + page number: (Wordsworth 263).",
+      "no_page_number": "Use first item from Works Cited entry (title, website name, etc.)"
+    },
+    "by_author_count": {
+      "one_author": {
+        "parenthetical": "(Smith 45)",
+        "signal_phrase": "Smith argues... (45)"
+      },
+      "two_authors": {
+        "parenthetical": "(Best and Marcus 9)",
+        "signal_phrase": "Best and Marcus argue... (9)"
+      },
+      "three_or_more_authors": {
+        "parenthetical": "(Franck et al. 327)",
+        "signal_phrase": "Franck et al. argue... (327)",
+        "note": "et al. has a period after 'al' — never a period after 'et'"
+      },
+      "same_last_name": "Include first initial to distinguish: (R. Miller 12) vs (A. Miller 46)",
+      "corporate_author": "Use corporation name + page number; abbreviate where appropriate",
+      "no_known_author": "Use shortened title — italicize if book/website, quote marks if article",
+      "same_author_multiple_works": "Add shortened title: (Murray, Write to Learn 6) or (Murray, A Writer Teaches Writing 3)"
+    },
+    "special_cases": {
+      "multivolume_works": "Volume number + colon + page: (Quintilian 1: 14-17)",
+      "classic_literary_works": "Page number + semicolon + location abbreviation: (Marx and Engels 79; ch. 1)",
+      "bible": "First citation: italicized version + book + chapter.verse: (New Jerusalem Bible, Ezek. 1.5-10). Subsequent: book + chapter.verse only",
+      "indirect_source": "Use 'qtd. in': (qtd. in Weisman 259)",
+      "multiple_sources": "Separate with semicolons: (Burke 3; Dewey 21)",
+      "electronic_no_page": "Use first item in Works Cited entry; no browser-based paragraph numbers",
+      "time_based_media": "Hours:minutes:seconds range: (00:02:15-00:02:35)",
+      "plays_scripts": "Each speaker name in ALL CAPS, indented 0.5 inch, followed by period then dialogue"
+    },
+    "when_not_needed": "Common knowledge, familiar proverbs, well-known quotations"
+  },
+
+  "quotations": {
+    "short_quotations": {
+      "definition": "4 typed lines or fewer of prose OR 3 lines of verse",
+      "format": "Enclose in double quotation marks, inline in text",
+      "citation_placement": "Parenthetical citation AFTER closing quotation mark, BEFORE period",
+      "punctuation": "Periods and commas go AFTER parenthetical. Question marks/exclamations go inside quotes if part of quote, after parenthetical if part of your text"
+    },
+    "long_quotations": {
+      "definition": "More than 4 typed lines of prose OR more than 3 lines of verse",
+      "format": "Block quotation — start on new line, indent entire quote 0.5 inch from left margin",
+      "quotation_marks": "Do NOT use quotation marks for block quotes",
+      "citation": "Parenthetical citation comes AFTER the closing punctuation of the block quote",
+      "spacing": "Double-spaced"
+    },
+    "verse_quotations": {
+      "short": "3 lines or fewer — inline, use slash (/) to indicate line breaks with space on each side",
+      "long": "More than 3 lines — block format, preserve original line breaks"
+    },
+    "omissions": "Use ellipsis (...) with spaces to indicate omitted words",
+    "additions": "Use square brackets [like this] for words added to a quote for clarity"
+  },
+
+  "works_cited": {
+    "label": "Works Cited",
+    "label_format": "centered, plain (do NOT italicize, underline, bold, or put in quotes)",
+    "placement": "separate page at end of paper",
+    "spacing": "double-spaced throughout, no extra spaces between entries",
+    "hanging_indent": "0.5 inch — first line flush left, all subsequent lines indented",
+    "alphabetization": "by first item in entry (usually author last name); ignore A, An, The",
+    "all_entries_end_with": "period",
+
+    "core_elements_in_order": [
+      "1. Author",
+      "2. Title of source",
+      "3. Title of container",
+      "4. Other contributors",
+      "5. Version",
+      "6. Number",
+      "7. Publisher",
+      "8. Publication date",
+      "9. Location (page numbers, URL, DOI)"
+    ],
+    "punctuation_between_elements": "Each element followed by corresponding punctuation — generally commas and periods only",
+
+    "author_rules": {
+      "format": "Last name, First name Middle initial.",
+      "no_titles_or_degrees": "Omit Dr., PhD, etc.",
+      "suffixes": "Include Jr., II etc.: King, Martin Luther, Jr.",
+      "two_authors": "First author: Last, First. Second author: First Last (normal order)",
+      "three_or_more": "First author Last, First, et al.",
+      "same_author_multiple_works": "Use three hyphens (---) in place of name for second and subsequent entries, alphabetized by title",
+      "pseudonyms": "Cite better-known name; less-known real name in square brackets: Carroll, Lewis [Charles Dodgson]",
+      "no_known_author": "Alphabetize by title; use shortened title in parenthetical"
+    },
+
+    "title_rules": {
+      "longer_container_works": "Italicize — books, websites, journals, magazines, newspapers, TV series, films",
+      "shorter_works_within_containers": "Quotation marks — articles, chapters, episodes, poems, short stories",
+      "capitalization": "Title Case — capitalize all principal words; do NOT capitalize articles (the, an, a), prepositions, or conjunctions unless first word"
+    },
+
+    "location_rules": {
+      "print_page_numbers": "p. for single page, pp. for range; omit repeated leading digits: pp. 225-50",
+      "doi": "Preferred over URL when available",
+      "url": "Delete 'http://' prefix; include access date for changeable web content",
+      "access_date_format": "Accessed Day Month Year (e.g., Accessed 4 May 2009)",
+      "online_database": "Include database name in italics; no subscription info needed"
+    },
+
+    "formats_by_source_type": {
+      "book_one_author": {
+        "template": "Last, First. Title of Book. Publisher, Year.",
+        "example": "Wordsworth, William. Lyrical Ballads. Oxford UP, 1967."
+      },
+      "book_two_authors": {
+        "template": "Last, First, and First Last. Title of Book. Publisher, Year.",
+        "example": "Gillespie, Paula, and Neal Lerner. The Allyn and Bacon Guide to Peer Tutoring. Allyn and Bacon, 2000."
+      },
+      "book_three_or_more_authors": {
+        "template": "Last, First, et al. Title of Book. Publisher, Year.",
+        "example": "Wysocki, Anne Frances, et al. Writing New Media. Utah State UP, 2004."
+      },
+      "edited_book": {
+        "template": "Last, First, editor. Title of Book. Publisher, Year."
+      },
+      "chapter_in_edited_book": {
+        "template": "Author Last, First. \"Title of Chapter.\" Title of Book, edited by First Last, Publisher, Year, pp. XX-XX."
+      },
+      "journal_article_print": {
+        "template": "Last, First. \"Title of Article.\" Journal Name, vol. #, no. #, Month Year, pp. XX-XX.",
+        "example": "Best, David, and Sharon Marcus. \"Surface Reading: An Introduction.\" Representations, vol. 108, no. 1, Fall 2009, pp. 1-21."
+      },
+      "journal_article_online": {
+        "template": "Last, First. \"Title of Article.\" Journal Name, vol. #, no. #, Month Year, pp. XX-XX. Database Name, doi:XXXXX.",
+        "note": "Include DOI if available; otherwise URL"
+      },
+      "newspaper_article": {
+        "template": "Last, First. \"Title of Article.\" Newspaper Name, Day Month Year, p./pp. XX."
+      },
+      "website_page": {
+        "template": "Last, First. \"Title of Page.\" Website Name, Day Month Year, URL. Accessed Day Month Year.",
+        "no_author": "\"Title of Page.\" Website Name, Day Month Year, URL. Accessed Day Month Year."
+      },
+      "film": {
+        "template": "Title of Film. Directed by First Last, performances by First Last, Studio, Year."
+      },
+      "tv_episode": {
+        "template": "\"Episode Title.\" Series Title, created by First Last, season #, episode #, Network, Day Month Year."
+      },
+      "translated_book": {
+        "template": "Author Last, First. Title. Translated by First Last, Publisher, Year."
+      },
+      "dissertation": {
+        "template": "Last, First. Title of Dissertation. Year, University Name, PhD dissertation."
+      },
+      "wikipedia": {
+        "template": "\"Article Title.\" Wikipedia, Wikimedia Foundation, Day Month Year, URL. Accessed Day Month Year."
+      },
+      "podcast": {
+        "template": "\"Episode Title.\" Podcast Name, hosted by First Last, Season #, Episode #, Publisher, Day Month Year, URL."
+      }
+    }
+  },
+
+  "endnotes_and_footnotes": {
+    "indicator_format": "Superscript Arabic numeral in text, after punctuation (except before dash)",
+    "symbol_rule": "Do NOT use asterisks, angle brackets, or other symbols",
+    "placement_options": ["bottom of page (footnotes)", "separate page before Works Cited (endnotes)"],
+    "endnote_page_label": "Notes (centered, unformatted/plain)",
+    "formatting": {
+      "spacing": "double-spaced",
+      "first_line_indent": "5 spaces",
+      "subsequent_lines": "flush left",
+      "format": "Number + period + space + note text"
+    },
+    "types": {
+      "bibliographic_notes": "References to other publications readers may consult",
+      "content_notes": "Brief supplementary information too digressive for main text"
+    },
+    "general_guidance": "MLA discourages extensive use — keep notes minimal"
+  },
+
+  "tables_figures_examples": {
+    "three_designations": ["tables", "figures", "examples"],
+    "tables": {
+      "in_text_reference": "Lowercase: 'see table 2' (do not capitalize 'table' in running text)",
+      "placement": "near text it relates to",
+      "alignment": "flush left to margin",
+      "label": "Table + Arabic numeral (no punctuation after label+number)",
+      "caption": "next line below label, title case",
+      "source_line": "'Source:' followed by MLA note-form citation",
+      "note_form_format": "First Last format for names; commas replace periods; publication info in parentheses"
+    },
+    "figures": {
+      "in_text_reference": "Capitalize: 'Fig. 1' when used as label",
+      "alignment": "no prescribed alignment — embed as fits",
+      "label": "Fig. + Arabic numeral + period (not bold or italic)",
+      "caption": "same line as label, title and/or source in note form",
+      "if_full_citation_in_caption": "Do not need to repeat in Works Cited"
+    },
+    "source_note_form_differences": [
+      "Author names in First Last format (not Last, First)",
+      "Commas replace periods between elements",
+      "Book publication info in parentheses",
+      "Page numbers follow publication info"
+    ]
+  },
+
+  "lists": {
+    "simple_lists": "Run into text with commas, or use a colon to introduce",
+    "vertical_lists": {
+      "unnumbered": "Use when order does not matter",
+      "numbered": "Use when order matters or items are steps",
+      "indent": "consistent indentation",
+      "capitalization": "Capitalize first word of each item",
+      "punctuation": "End with period if items are complete sentences; no punctuation if short phrases"
+    }
+  },
+
+  "abbreviations": {
+    "general_rule": "Define abbreviation on first use then use abbreviation consistently",
+    "common_academic": {
+      "ed.": "editor / edition",
+      "eds.": "editors",
+      "trans.": "translator",
+      "vol.": "volume",
+      "vols.": "volumes",
+      "no.": "number",
+      "p.": "page",
+      "pp.": "pages",
+      "ch.": "chapter",
+      "sec.": "section",
+      "par.": "paragraph",
+      "qtd. in": "quoted in (for indirect sources)",
+      "n.d.": "no date",
+      "n.p.": "no publisher or no page",
+      "et al.": "and others (period after al, never after et)",
+      "rev.": "revised",
+      "UP": "University Press"
+    },
+    "publisher_abbreviations": {
+      "University Press": "UP (e.g., Oxford UP, Yale UP)",
+      "University": "U (e.g., Harvard U)"
+    }
+  },
+
+  "inclusive_language": {
+    "note": "New chapter added in MLA 9th edition",
+    "guidelines": [
+      "Be conscious of gender-specific terms and stereotyped language",
+      "Use people-first language where appropriate",
+      "Use pronouns carefully and respect authors' stated pronouns",
+      "Consider the effect on various audiences",
+      "Capitalize group names when members capitalize them (e.g., Black, Indigenous)"
+    ]
+  },
+
+  "stylistics": {
+    "spelling_consistency": "Various spellings acceptable but must be consistent throughout, except in direct quotations",
+    "punctuation_guidance": {
+      "commas": "Standard usage; serial comma recommended",
+      "colons": "Introduce lists or explanations",
+      "dashes": "Em dash for interruption or emphasis",
+      "hyphens": "Compound modifiers before noun",
+      "apostrophes": "Possession and contractions",
+      "slashes": "Used in inline verse quotations to indicate line breaks (with spaces on each side)"
+    },
+    "italics_for": ["titles of longer works", "emphasis (sparingly)", "words used as words", "letters referred to as letters", "foreign words"],
+    "capitalization_special": [
+      "Capitalize names of persons, organizations, titles of works",
+      "Follow MLA guidelines for government and organization names",
+      "Capitalize group identifiers when members capitalize them"
+    ]
+  },
+
+  "key_changes_from_mla8": [
+    "Reintroduction of research paper formatting guidance (was absent in MLA 8)",
+    "New chapter on inclusive language",
+    "Expanded guidance on tables, figures, and list formatting",
+    "More examples for each core element in Works Cited",
+    "New section: 'When Author and Title are not Enough' for disambiguation",
+    "Guidance on citing pseudonyms and stage names",
+    "Apps and databases: cite only when they are containers of the work",
+    "Annotated bibliography guidance added",
+    "Expanded grammar mechanics: spelling, punctuation, capitalization, italics",
+    "Notes section: when and how to use notes in text"
+  ],
+
+  "key_differences_from_apa7": [
+    "MLA uses author-PAGE (not author-year) for in-text citations",
+    "No abstract required or standard in MLA",
+    "No title page for individual papers (only group projects)",
+    "Works Cited vs References — all cited works only, not a full bibliography",
+    "Title Case for Works Cited titles of containers; sentence case NOT used",
+    "No DOI label format requirement — DOI or URL as final location element",
+    "Headings are flexible, not prescribed levels",
+    "Primarily used in humanities, not social sciences"
+  ]
+}

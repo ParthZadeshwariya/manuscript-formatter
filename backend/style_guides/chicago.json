@@ -1,0 +1,388 @@
+{
+  "name": "Chicago Manual of Style 18th Edition",
+  "source": "Purdue OWL - https://owl.purdue.edu/owl/research_and_citation/chicago_manual_18th_edition/cmos_formatting_and_style_guide/",
+  "edition": "18th edition (2024)",
+  "discipline": "Literature, history, and the arts",
+  "turabian_reference": "Supplemented by Turabian's Manual for Writers of Research Papers, Theses, and Dissertations (9th ed.)",
+
+  "citation_systems": {
+    "two_systems": true,
+    "notes_bibliography": {
+      "abbreviation": "NB",
+      "in_text": "Superscript numbered footnotes or endnotes",
+      "back_matter": "Bibliography page",
+      "used_by": "Humanities — literature, history, arts",
+      "note": "First note for each source includes full citation. Subsequent notes use shortened form."
+    },
+    "author_date": {
+      "abbreviation": "AD",
+      "in_text": "Parenthetical citation: (Author Year) or (Author Year, page)",
+      "back_matter": "References page",
+      "used_by": "Sciences and social sciences",
+      "note": "Very similar to APA style"
+    },
+    "important": "Always confirm with instructor or publisher which system to use"
+  },
+
+  "general_format": {
+    "paper_size": "8.5 x 11 inches, white",
+    "margins": "no less than 1 inch on all sides",
+    "font": "Readable font such as Times New Roman or Courier",
+    "font_size": "no less than 10pt, preferably 12pt",
+    "line_spacing": "double-spaced — EXCEPT for block quotations, notes, bibliography entries, table titles, and figure captions",
+    "spaces_after_punctuation": "one space after periods and other punctuation",
+    "page_numbers": {
+      "placement": "header of first page of text",
+      "start_with": "Arabic numeral 1 on first page of text",
+      "format": "consecutive Arabic numerals"
+    },
+    "place_of_publication": "No longer required in 18th edition unless needed for clarification (e.g. two cities with same name)"
+  },
+
+  "title_page": {
+    "required": "Optional — either title page OR title on first page of text",
+    "turabian_title_page": {
+      "title_position": "centered, one-third of the way down the page",
+      "title_format": "ALL CAPS centered (Author-Date); or standard headline capitalization (NB)",
+      "subtitle": "End title line with colon, place subtitle on line below",
+      "author_info": "Name + class information + date — follow several lines later, also centered",
+      "spacing": "double-space each line on title page"
+    },
+    "no_title_page": {
+      "first_page": "Include title at top of first page of text, centered"
+    }
+  },
+
+  "headings": {
+    "prescribed_system": false,
+    "note": "CMOS does not prescribe a heading system — devise your own but maintain consistency",
+    "cmos_recommendations": [
+      "Maintain consistency and parallel structure in headings and subheads",
+      "Use headline-style capitalization for all headings",
+      "Subheadings should begin on a new line",
+      "Subheadings can be distinguished by font size",
+      "Ensure each level of hierarchy is clear and consistent",
+      "Differentiate levels by type style (bold/italic) and placement (centered/flush left)",
+      "Use no more than three levels of hierarchy",
+      "Avoid ending subheadings with periods"
+    ],
+    "turabian_five_levels": {
+      "level_1": "Centered, Boldface or Italic Type, Headline-style Capitalization",
+      "level_2": "Centered, Regular Type, Headline-style Capitalization",
+      "level_3": "Flush Left, Boldface or Italic Type, Headline-style Capitalization",
+      "level_4": "Flush left, roman type, sentence-style capitalization",
+      "level_5": "Run in at beginning of paragraph (no blank line after), boldface or italic type, sentence-style capitalization, terminal period"
+    },
+    "capitalization_style": "Headline-style — capitalize all major words; do not capitalize articles, prepositions, conjunctions unless first word"
+  },
+
+  "in_text_citations": {
+    "nb_system": {
+      "method": "Superscript footnote/endnote numbers",
+      "note_placement_in_text": "After all punctuation EXCEPT the dash; at end of clause or sentence",
+      "note_number_format_in_text": "Superscripted Arabic numeral",
+      "first_note_full_citation": true,
+      "subsequent_notes_shortened": true,
+      "shortened_note_format": "Author surname, shortened title (if more than 4 words), page number",
+      "ibid_usage": "Use 'Ibid.' for immediately repeated source; include new page if different",
+      "no_bibliography_rule": "If no bibliography, repeat full citation at first use in each new chapter"
+    },
+    "author_date_system": {
+      "method": "Parenthetical (Author Year) or (Author Year, page)",
+      "basic_format": "(Smith 2020) or (Smith 2020, 45)",
+      "clarifying_words_omitted": "Do not include 'ed.' or 'trans.' in parenthetical citations",
+      "signal_phrase": "Smith (2020) argues... OR Smith (2020, 45) argues...",
+      "multiple_citations": "Separate with semicolons: (Smith 2020; Jones 2019)",
+      "no_date": "Use n.d.: (Smith n.d.)"
+    },
+    "by_author_count": {
+      "one_two_authors_notes": "List both authors in notes",
+      "three_or_more_authors_notes": "First author only + et al. in notes",
+      "two_three_authors_bibliography": "Write out all names",
+      "four_to_ten_authors_bibliography": "Write out all names in bibliography; first author + et al. in notes",
+      "more_than_six_authors_bibliography": "List first three, followed by et al.",
+      "author_order": "List in the order they appear in the source, not alphabetically"
+    },
+    "no_author": "Cite by title — use up to four keywords in shortened form for notes/parenthetical",
+    "indirect_source": "Use 'quoted in' — Chicago strongly discourages; use only when original is unavailable",
+    "indirect_format_note": "Ian Hacking... quoted in Manuel DeLanda... 2.",
+    "secondary_source_in_bibliography": "Include only the secondary source you actually consulted"
+  },
+
+  "footnotes_endnotes": {
+    "numbering": "Begin with 1, consecutive throughout paper",
+    "placement_options": ["bottom of page (footnotes)", "separate page before Bibliography (endnotes)"],
+    "note_number_in_text": "Superscripted, after all punctuation except dash",
+    "note_number_in_note": "Full-sized (not raised) followed by period — superscripting also acceptable",
+    "note_formatting": {
+      "lines": "flush left",
+      "commentary_and_source": "Place commentary after source documentation, separated by period",
+      "parenthetical_commentary": "Separate documentation from brief commentary with semicolon",
+      "page_ranges": "Do not repeat hundreds digit if unchanged: 233-47 not 233-247"
+    },
+    "shortened_notes": {
+      "format": "Lastname, Shortened Title, page.",
+      "when_to_shorten_title": "When title is more than four words",
+      "example": "Kerouac, Dharma Bums, 45."
+    },
+    "first_note_full_format_nb": "Firstname Lastname, Title (Publisher, Year), page.",
+    "bibliography_entry_nb": "Lastname, Firstname. Title. Publisher, Year."
+  },
+
+  "bibliography_references": {
+    "nb_label": "Bibliography",
+    "ad_label": "References",
+    "label_format": "centered, plain (no italics, bold, or quotes)",
+    "placement": "end of paper, separate page",
+    "spacing": {
+      "before_first_entry": "two blank lines between label and first entry",
+      "between_entries": "one blank line between entries",
+      "within_entries": "single-spaced within each entry"
+    },
+    "hanging_indent": true,
+    "alphabetization": "letter-by-letter, by first word of entry",
+    "use_and_not_ampersand": "Use 'and', not '&', for multi-author entries",
+    "publisher_names": "Write out in full",
+    "doi_preference": "Provide DOIs instead of URLs whenever possible; if no DOI, provide URL",
+    "access_dates": "Do not use unless publication date is unavailable",
+    "no_date_abbreviation": "n.d.",
+    "page_range_style": "Do not repeat hundreds digit: 233-47",
+
+    "author_rules": {
+      "format": "Last, First (first author inverted); subsequent authors First Last",
+      "separator": "'and' between authors",
+      "no_titles_degrees": "Omit Dr., PhD, etc.",
+      "two_authors": "Both listed: Last, First, and First Last.",
+      "three_to_six_authors": "List all in bibliography",
+      "more_than_six": "First three, then et al.",
+      "nb_notes_three_plus": "First author et al. only",
+      "ad_notes_four_plus": "First author et al. only in parenthetical"
+    },
+
+    "title_rules": {
+      "longer_works": "Italicize — books, journals, magazines, newspapers, websites (if similar to printed work), films, TV shows",
+      "shorter_works": "Quotation marks — articles, chapters, episodes, poems, essays, web page sections",
+      "long_poems": "Italicize",
+      "plays": "Italicize",
+      "unpublished_works": "Quotation marks",
+      "wikipedia": "Roman (not italicized) — treated as website, not encyclopedia",
+      "blog_titles": "Italics",
+      "blog_entries": "Quotation marks",
+      "capitalization": "Headline-style — capitalize all major words",
+      "all_caps_headlines": "Convert to headline-style upper and lower case in citation"
+    },
+
+    "nb_formats_by_source": {
+      "book_one_author": {
+        "note": "Firstname Lastname, Title (Publisher, Year), page.",
+        "bibliography": "Lastname, Firstname. Title. Publisher, Year."
+      },
+      "book_two_authors": {
+        "note": "Firstname Lastname and Firstname Lastname, Title (Publisher, Year), page.",
+        "bibliography": "Lastname, Firstname, and Firstname Lastname. Title. Publisher, Year."
+      },
+      "book_three_or_more": {
+        "note": "Firstname Lastname et al., Title (Publisher, Year), page.",
+        "bibliography": "Lastname, Firstname, Firstname Lastname, and Firstname Lastname. Title. Publisher, Year. [up to 6; 7+ use first 3 + et al.]"
+      },
+      "translated_book": {
+        "note": "Firstname Lastname, Title, trans. Firstname Lastname (Publisher, Year), page.",
+        "bibliography": "Lastname, Firstname. Title. Translated by Firstname Lastname. Publisher, Year."
+      },
+      "edited_book": {
+        "note": "Firstname Lastname, ed., Title (Publisher, Year), page.",
+        "bibliography": "Lastname, Firstname, ed. Title. Publisher, Year.",
+        "note_abbrev": "Use ed./eds. in notes; spell out 'Edited by' in bibliography"
+      },
+      "chapter_in_edited_book": {
+        "note": "Firstname Lastname, \"Chapter Title,\" in Book Title, ed. Firstname Lastname (Publisher, Year), pages.",
+        "bibliography": "Lastname, Firstname. \"Chapter Title.\" In Book Title, edited by Firstname Lastname, pages. Publisher, Year.",
+        "page_range_note": "Page range for cited chapter no longer required in bibliography (18th ed. change)"
+      },
+      "introduction_preface_afterword": {
+        "note": "Firstname Lastname, introduction to Title, ed. Firstname Lastname (Publisher, Year), page.",
+        "bibliography": "Lastname, Firstname. Introduction to Title, page-range. Edited by Firstname Lastname. Publisher, Year."
+      },
+      "journal_article": {
+        "note": "Firstname Lastname, \"Article Title,\" Journal Name vol, no. issue (Year): page.",
+        "bibliography": "Lastname, Firstname. \"Article Title.\" Journal Name vol, no. issue (Year): first-last pages.",
+        "separator_note": "Commas separate major elements in notes",
+        "separator_bibliography": "Periods separate major elements in bibliography"
+      },
+      "journal_article_online": {
+        "note": "Firstname Lastname, \"Article Title,\" Journal Name vol, no. issue (Year): page, doi:XXXXX.",
+        "bibliography": "Lastname, Firstname. \"Article Title.\" Journal Name vol, no. issue (Year): pages. doi:XXXXX.",
+        "access_date": "Not required for formally published sources; include only if required by discipline"
+      },
+      "magazine_article": {
+        "note": "Firstname Lastname, \"Article Title,\" Magazine Name, Month Year, page.",
+        "bibliography": "Lastname, Firstname. \"Article Title.\" Magazine Name, Month Year."
+      },
+      "newspaper_article": {
+        "note": "Firstname Lastname, \"Headline,\" Newspaper Name (City, State), Month Day, Year.",
+        "bibliography": "Lastname, Firstname. \"Headline.\" Newspaper Name (City, State), Month Day, Year.",
+        "page_numbers": "Usually omitted due to multiple editions",
+        "the_rule": "Omit 'The' from newspaper names",
+        "local_papers": "Add city name in parentheses for non-well-known papers"
+      },
+      "website": {
+        "note": "Firstname Lastname, \"Page Title,\" Website Name, publication/revision date, URL.",
+        "bibliography": "Lastname, Firstname. \"Page Title.\" Website Name. Publication/revision date. URL.",
+        "no_author": "\"Page Title.\" Website Name. Date. URL.",
+        "no_date": "Use access date: Accessed Month Day, Year."
+      },
+      "ebook": {
+        "note": "Same as print + media marker at end: Kindle, PDF, EPUB",
+        "bibliography": "Same as print + DOI or URL at end"
+      },
+      "blog": {
+        "note": "Firstname Lastname, \"Entry Title,\" Blog Name (blog), Month Day, Year, URL.",
+        "bibliography": "Only if frequently cited",
+        "blog_title_format": "Italics; 'blog' in parentheses after title unless word is in title"
+      },
+      "podcast": {
+        "note": "Firstname Lastname, \"Episode Title,\" date, in Podcast Name, produced by X, podcast, format, runtime, URL.",
+        "bibliography": "Lastname, Firstname. \"Episode Title.\" Produced by X. Podcast Name. Date. Podcast, format, runtime. URL."
+      },
+      "online_video": {
+        "note": "Firstname Lastname, \"Video Title,\" Platform, date, video, runtime, URL.",
+        "bibliography": "Lastname, Firstname. \"Video Title.\" Platform. Date. Video, runtime. URL.",
+        "medium": "Use 'video' for streaming without clear file type"
+      },
+      "social_media": {
+        "note": "Firstname Lastname (ScreenName), \"Post text (max 160 chars)\", Platform, format, date, timestamp, URL.",
+        "bibliography": "Only if discussed in depth",
+        "private_content": "Cite as personal communication, not social media post",
+        "screenshots": "Advisable to keep in case post is deleted"
+      },
+      "ai_generated": {
+        "note": "Text generated by [Tool], [Developer], date, URL.",
+        "bibliography": "Developer. Response to \"[prompt].\" Tool. Date. URL.",
+        "example_note": "Text generated by ChatGPT-5, OpenAI, November 7, 2025, [URL].",
+        "example_bibliography": "OpenAI. Response to \"[prompt].\" ChatGPT-5, November 7, 2025. [URL].",
+        "general_rule": "Cite in notes only; include in bibliography only if discussed in depth"
+      },
+      "indirect_source": {
+        "note": "Author, Title (Publisher, Year), page, quoted in Author2, Title2 (Publisher2, Year2), page2.",
+        "note_chicago_discourages": true
+      },
+      "self_published": {
+        "note": "Firstname Lastname, Title (pub. by author, Year), page.",
+        "bibliography": "Lastname, Firstname. Title. Self-published, Platform, Year."
+      }
+    },
+
+    "ad_formats_by_source": {
+      "note": "Author-Date system places year immediately after author name",
+      "book": "Lastname, Firstname. Year. Title. Publisher.",
+      "journal_article": "Lastname, Firstname. Year. \"Article Title.\" Journal Name vol (issue): pages. doi:XXXXX.",
+      "website": "Lastname, Firstname. Year. \"Page Title.\" Website Name. URL.",
+      "no_date": "Lastname, Firstname. n.d. \"Title.\" Website. URL."
+    }
+  },
+
+  "quotations": {
+    "short_quotations": {
+      "format": "Inline, enclosed in double quotation marks",
+      "citation_nb": "Superscript footnote number after closing punctuation",
+      "citation_ad": "Parenthetical after closing quotation mark before period"
+    },
+    "block_quotations": {
+      "prose_threshold": "5 or more lines, OR more than 100 words",
+      "poetry_threshold": "2 or more lines recommended",
+      "format": "New line, indented using word processor indentation tool",
+      "quotation_marks": "Do NOT use quotation marks for block quotes",
+      "citation_placement": "After final punctuation of block quote",
+      "font_option": "May use different or smaller font to offset from surrounding text",
+      "spacing": "Single-spaced (exception to general double-spacing rule)"
+    },
+    "omissions": "Use ellipsis with spaces",
+    "additions": "Use square brackets [for added words]",
+    "sic": "Use [sic] to indicate errors in original"
+  },
+
+  "tables_figures": {
+    "placement": "As soon as possible after first referenced; after the paragraph describing them if necessary",
+    "reference_in_text": "By number: 'in figure 3' NOT by location ('below')",
+    "tables": {
+      "label": "Table + Arabic numeral (e.g., Table 1)",
+      "title": "Without terminal period, on line after label",
+      "credit_line": "At bottom, in parentheses or different type; cite as parenthetical + full entry in Bibliography/References",
+      "unnumbered_footnote": "Use if data not acquired by author; introduce with 'Source(s):'",
+      "spacing": "Single-spaced (exception to general rule)"
+    },
+    "figures": {
+      "label": "Figure + Arabic numeral (e.g., Figure 2)",
+      "caption": "Directly after figure number, with or without terminal period",
+      "caption_spacing": "Single-spaced (exception to general rule)",
+      "credit_line": "After caption, distinguished from caption by parentheses or different type",
+      "reproduced_adapted": "Acknowledge appropriately: 'photo by', 'data adapted from', 'map by'"
+    }
+  },
+
+  "web_source_titles": {
+    "website_similar_to_print": "Italicize",
+    "wikipedia": "Roman (not italicized)",
+    "website_sections_pages": "Roman with quotation marks",
+    "generic_pages": "No quotation marks for generic titles like Help or About",
+    "blog_titles": "Italics",
+    "blog_entries": "Quotation marks",
+    "works_same_in_print_and_online": "Treat identically regardless of format"
+  },
+
+  "abbreviations": {
+    "in_notes": {
+      "editor": "ed. / eds.",
+      "translator": "trans.",
+      "self_published": "pub. by author / self-pub"
+    },
+    "in_bibliography": {
+      "editor": "Edited by (spell out in full)",
+      "translator": "Translated by (spell out in full)",
+      "self_published": "Self-published (spell out)"
+    },
+    "general": {
+      "et_al": "et al. — used in notes for 3+ authors (NB) or 4+ authors (AD)",
+      "n.d.": "no date",
+      "n.p.": "no publisher or no page",
+      "ibid.": "same source as immediately preceding note (NB only)",
+      "sec.": "section",
+      "eq.": "equation",
+      "vol.": "volume",
+      "n.": "note"
+    }
+  },
+
+  "key_changes_from_17th_edition": [
+    "Place of publication no longer required in bibliographic entries or notes (unless needed for clarification)",
+    "Page range for cited chapter in edited book no longer required in bibliography",
+    "Up to six authors in bibliography (was same in 17th, but multi-author note rules clarified)",
+    "AI-generated content citation guidance added (new in 18th)",
+    "Social media citations expanded and updated",
+    "Website title italicization rules clarified",
+    "Online periodical citation guidance updated"
+  ],
+
+  "key_differences_from_apa7": [
+    "Two citation systems (NB and Author-Date) vs APA's single author-date system",
+    "NB uses footnotes/endnotes, not parenthetical citations",
+    "Bibliography vs References — similar but formatted differently",
+    "Place of publication not required in CMOS 18th (was standard in older styles)",
+    "Notes use First Last name order; bibliography uses Last, First for first author only",
+    "Commas separate note elements; periods separate bibliography elements",
+    "No prescribed abstract requirement",
+    "No prescribed heading level system (flexible vs APA's 5 rigid levels)",
+    "Up to 6 authors in bibliography (APA allows up to 20)",
+    "Primarily used in humanities, not social/behavioral sciences"
+  ],
+
+  "key_differences_from_mla9": [
+    "CMOS has two systems; MLA has one (author-page)",
+    "CMOS NB uses footnotes; MLA uses parenthetical author-page",
+    "CMOS bibliography entries use 'Edited by' spelled out; MLA uses 'edited by' lowercase",
+    "CMOS uses headline capitalization consistently; MLA uses title case for containers, sentence case for sources",
+    "CMOS omits place of publication; older MLA editions required it",
+    "CMOS has more prescriptive rules for different source types",
+    "Both used in humanities but CMOS more common in history, MLA in literature"
+  ]
+}

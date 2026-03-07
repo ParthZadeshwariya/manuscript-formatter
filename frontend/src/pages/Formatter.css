@@ -15,6 +15,19 @@
     z-index: 0;
     pointer-events: none;
     background: var(--gradient-hero);
+    overflow: hidden;
+}
+
+.formatter-page__bg::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(circle at var(--cursor-x) var(--cursor-y), rgba(255, 255, 255, 0.16), transparent 50%),
+        radial-gradient(circle at calc(var(--cursor-x) + 18%) calc(var(--cursor-y) + 12%), rgba(139, 92, 246, 0.12), transparent 58%),
+        radial-gradient(circle at calc(var(--cursor-x) - 14%) calc(var(--cursor-y) - 10%), rgba(34, 211, 238, 0.08), transparent 54%);
+    opacity: 0.48;
+    mix-blend-mode: screen;
 }
 
 .formatter-page__orb {
@@ -44,6 +57,10 @@
 
 [data-theme="dark"] .formatter-page__orb {
     opacity: 0.07;
+}
+
+[data-theme="dark"] .formatter-page__bg::before {
+    opacity: 0.3;
 }
 
 .formatter-page__content {

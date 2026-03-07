@@ -17,22 +17,25 @@
 
 /* ── Design Tokens: Light Mode ─────────────────────────────────── */
 :root {
-  /* Primary Palette — Electric Indigo */
-  --primary-50: #eef2ff;
-  --primary-100: #e0e7ff;
-  --primary-200: #c7d2fe;
-  --primary-300: #a5b4fc;
-  --primary-400: #818cf8;
-  --primary-500: #6366f1;
-  --primary-600: #4f46e5;
-  --primary-700: #4338ca;
-  --primary-800: #3730a3;
-  --primary-900: #312e81;
+  /* Primary Palette — Purple Spectrum */
+  --primary-50: #f5f3ff;
+  --primary-100: #ede9fe;
+  --primary-200: #ddd6fe;
+  --primary-300: #c4b5fd;
+  --primary-400: #a78bfa;
+  --primary-500: #8b5cf6;
+  --primary-600: #7c3aed;
+  --primary-700: #6d28d9;
+  --primary-800: #5b21b6;
+  --primary-900: #4c1d95;
 
-  /* Accent — Cyan-Electric */
-  --accent-400: #22d3ee;
-  --accent-500: #06b6d4;
-  --accent-600: #0891b2;
+  /* Accent */
+  --accent-400: #fb7185;
+  --accent-500: #f43f5e;
+  --accent-600: #e11d48;
+
+  --cursor-x: 50%;
+  --cursor-y: 50%;
 
   /* Surfaces */
   --bg-primary: #f8f9fc;
@@ -60,7 +63,7 @@
   --shadow-md: 0 4px 6px -1px rgba(15, 23, 42, 0.08), 0 2px 4px -2px rgba(15, 23, 42, 0.05);
   --shadow-lg: 0 10px 15px -3px rgba(15, 23, 42, 0.08), 0 4px 6px -4px rgba(15, 23, 42, 0.04);
   --shadow-xl: 0 20px 25px -5px rgba(15, 23, 42, 0.08), 0 8px 10px -6px rgba(15, 23, 42, 0.04);
-  --shadow-glow: 0 0 30px rgba(99, 102, 241, 0.18);
+  --shadow-glow: 0 0 30px rgba(139, 92, 246, 0.2);
   --shadow-card: 0 1px 3px rgba(15, 23, 42, 0.04), 0 6px 16px rgba(15, 23, 42, 0.04);
 
   /* Typography */
@@ -83,22 +86,22 @@
   --navbar-height: 68px;
 
   /* Gradients */
-  --gradient-primary: linear-gradient(135deg, #6366f1 0%, #4f46e5 50%, #06b6d4 100%);
-  --gradient-hero: linear-gradient(160deg, #f8f9fc 0%, #eef2ff 35%, #f0f9ff 70%, #f8f9fc 100%);
-  --gradient-text: linear-gradient(135deg, #4f46e5 0%, #06b6d4 100%);
-  --gradient-card: linear-gradient(145deg, rgba(99, 102, 241, 0.04), rgba(6, 182, 212, 0.02));
+  --gradient-primary: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 50%, #22d3ee 100%);
+  --gradient-hero: linear-gradient(160deg, #f8f9fc 0%, #f5f3ff 35%, #ecfeff 70%, #f8f9fc 100%);
+  --gradient-text: linear-gradient(135deg, #7c3aed 0%, #22d3ee 100%);
+  --gradient-card: linear-gradient(145deg, rgba(139, 92, 246, 0.06), rgba(34, 211, 238, 0.03));
 
   /* Upload Zone */
   --upload-bg: #f8f9fc;
   --upload-border: #d1d5db;
-  --upload-active-bg: #eef2ff;
-  --upload-active-border: #6366f1;
+  --upload-active-bg: #f5f3ff;
+  --upload-active-border: #8b5cf6;
 
   /* Status Colors */
   --success: #10b981;
   --warning: #f59e0b;
   --error: #ef4444;
-  --info: #6366f1;
+  --info: #8b5cf6;
 
   color-scheme: light;
 }
@@ -127,16 +130,16 @@
   --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
   --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
   --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.6);
-  --shadow-glow: 0 0 40px rgba(99, 102, 241, 0.15);
+  --shadow-glow: 0 0 40px rgba(139, 92, 246, 0.2);
   --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.35);
 
-  --gradient-hero: linear-gradient(160deg, #080c18 0%, #0b1025 35%, #09111f 70%, #080c18 100%);
-  --gradient-card: linear-gradient(145deg, rgba(99, 102, 241, 0.07), rgba(6, 182, 212, 0.03));
+  --gradient-hero: linear-gradient(160deg, #080c18 0%, #151026 35%, #0a1526 70%, #080c18 100%);
+  --gradient-card: linear-gradient(145deg, rgba(139, 92, 246, 0.1), rgba(34, 211, 238, 0.04));
 
   --upload-bg: #0e1220;
   --upload-border: #334155;
-  --upload-active-bg: rgba(99, 102, 241, 0.08);
-  --upload-active-border: #6366f1;
+  --upload-active-bg: rgba(139, 92, 246, 0.12);
+  --upload-active-border: #8b5cf6;
 
   color-scheme: dark;
 }
@@ -155,6 +158,19 @@ body {
   line-height: 1.6;
   transition: background-color var(--transition-base), color var(--transition-base);
   overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at var(--cursor-x) var(--cursor-y), rgba(255, 255, 255, 0.2), transparent 55%),
+              radial-gradient(circle at calc(var(--cursor-x) + 20%) calc(var(--cursor-y) + 20%), rgba(139, 92, 246, 0.12), transparent 55%);
+  opacity: 0.55;
+  mix-blend-mode: screen;
+  transition: background-position 120ms ease;
+  z-index: 0;
 }
 
 a {

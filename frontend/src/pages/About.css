@@ -5,7 +5,7 @@
 .about-page {
     position: relative;
     min-height: 100vh;
-    padding-top: 120px;
+    padding-top: calc(var(--navbar-height) + 48px);
     padding-bottom: 80px;
 }
 
@@ -26,9 +26,9 @@
 }
 
 .about-page__orb--1 {
-    width: 400px;
-    height: 400px;
-    background: var(--primary-300);
+    width: 420px;
+    height: 420px;
+    background: var(--primary-400);
     top: 10%;
     right: -100px;
 }
@@ -36,7 +36,7 @@
 .about-page__orb--2 {
     width: 300px;
     height: 300px;
-    background: #06b6d4;
+    background: var(--accent-500);
     bottom: 20%;
     left: -100px;
     animation-delay: -4s;
@@ -64,7 +64,7 @@
 
 .about-hero__title {
     font-family: var(--font-display);
-    font-size: clamp(30px, 4vw, 44px);
+    font-size: clamp(28px, 4vw, 44px);
     font-weight: 800;
     letter-spacing: -0.03em;
 }
@@ -83,7 +83,7 @@
 
 .pipeline__title {
     font-family: var(--font-display);
-    font-size: 24px;
+    font-size: 22px;
     font-weight: 700;
     margin-bottom: 32px;
     display: flex;
@@ -138,6 +138,7 @@
     position: relative;
     z-index: 1;
     margin-left: -28px;
+    box-shadow: 0 2px 8px rgba(99, 102, 241, 0.3);
 }
 
 .pipeline__step-content h4 {
@@ -159,7 +160,7 @@
 
 .agents__title {
     font-family: var(--font-display);
-    font-size: 24px;
+    font-size: 22px;
     font-weight: 700;
     margin-bottom: 8px;
 }
@@ -183,10 +184,21 @@
     gap: 12px;
     padding: 24px;
     cursor: default;
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-card);
+    transition: all var(--transition-base);
 }
 
 .agent-card:hover {
     transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--primary-300);
+}
+
+[data-theme="dark"] .agent-card:hover {
+    border-color: rgba(99, 102, 241, 0.3);
 }
 
 .agent-card__icon {
@@ -201,7 +213,7 @@
 }
 
 [data-theme="dark"] .agent-card__icon {
-    background: rgba(16, 185, 129, 0.1);
+    background: rgba(99, 102, 241, 0.1);
     color: var(--primary-400);
 }
 
@@ -224,7 +236,7 @@
 
 .tech__title {
     font-family: var(--font-display);
-    font-size: 24px;
+    font-size: 22px;
     font-weight: 700;
     margin-bottom: 24px;
 }
@@ -239,7 +251,7 @@
     display: flex;
     flex-direction: column;
     gap: 4px;
-    padding: 20px 24px;
+    padding: 18px 22px;
     border-radius: var(--radius-md);
     border: 1px solid var(--border-subtle);
     background: var(--bg-card);
@@ -248,6 +260,7 @@
 
 .tech-chip:hover {
     border-color: var(--primary-400);
+    box-shadow: var(--shadow-md);
 }
 
 .tech-chip__name {
@@ -274,21 +287,34 @@
     flex-direction: column;
     align-items: center;
     gap: 12px;
+    position: relative;
+    overflow: hidden;
+}
+
+.about-cta::before {
+    content: '';
+    position: absolute;
+    inset: -50%;
+    background: radial-gradient(circle at 50% 120%, rgba(99, 102, 241, 0.07), transparent 55%);
+    pointer-events: none;
 }
 
 .about-cta h2 {
     font-family: var(--font-display);
     font-size: 28px;
     font-weight: 800;
+    position: relative;
 }
 
 .about-cta p {
     font-size: 15px;
     color: var(--text-secondary);
+    position: relative;
 }
 
 .about-cta .btn {
     margin-top: 8px;
+    position: relative;
 }
 
 /* Responsive */

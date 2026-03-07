@@ -20,7 +20,7 @@
     width: 500px;
     height: 500px;
     border-radius: 50%;
-    background: var(--primary-300);
+    background: var(--primary-500);
     filter: blur(120px);
     opacity: 0.15;
     top: 50%;
@@ -57,7 +57,7 @@
 }
 
 [data-theme="dark"] .notfound__icon {
-    background: rgba(16, 185, 129, 0.08);
+    background: rgba(99, 102, 241, 0.1);
 }
 
 .notfound__code {

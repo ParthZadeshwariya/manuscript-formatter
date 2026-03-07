@@ -1,7 +1,7 @@
 .contact-page {
     position: relative;
     min-height: 100vh;
-    padding-top: 120px;
+    padding-top: calc(var(--navbar-height) + 48px);
     padding-bottom: 80px;
 }
 
@@ -24,7 +24,7 @@
 .contact-page__orb--1 {
     width: 450px;
     height: 450px;
-    background: var(--primary-300);
+    background: var(--primary-500);
     top: 20%;
     left: -150px;
 }
@@ -120,7 +120,7 @@
 .contact-form__field input:focus,
 .contact-form__field textarea:focus {
     border-color: var(--primary-500);
-    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.12);
 }
 
 .contact-form__field input::placeholder,
@@ -161,7 +161,7 @@
 }
 
 [data-theme="dark"] .contact-success__icon {
-    background: rgba(16, 185, 129, 0.1);
+    background: rgba(99, 102, 241, 0.1);
 }
 
 .contact-success h3 {
@@ -212,7 +212,7 @@
 }
 
 [data-theme="dark"] .contact-info-card__icon {
-    background: rgba(16, 185, 129, 0.1);
+    background: rgba(99, 102, 241, 0.1);
     color: var(--primary-400);
 }
 

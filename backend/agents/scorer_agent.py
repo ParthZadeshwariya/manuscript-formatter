@@ -5,10 +5,13 @@ import json, re
 # from langchain_ollama import ChatOllama
 from dotenv import load_dotenv
 load_dotenv()
+
+
 # from langchain_groq import ChatGroq
 # llm = ChatGroq(model="llama-3.3-70b-versatile", temperature=0)
-llm = ChatGoogleGenerativeAI(model="gemini-3.1-flash-lite-preview", temperature=0)
+llm = ChatGoogleGenerativeAI(model="gemini-2.5-flash", temperature=0)
 # llm = ChatOllama(model="qwen2.5-coder:7b", temperature=0)
+
 
 SCORE_PROMPT = ChatPromptTemplate.from_messages([
     ("system", """You are a manuscript compliance evaluator.

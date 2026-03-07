@@ -17,29 +17,31 @@ function ScrollToTop() {
   return null;
 }
 
+function AppLayout() {
+  return (
+    <>
+      <ScrollToTop />
+      <Navbar />
+      <main>
+        <Routes>
+          <Route path="/" element={<Landing />} />
+          <Route path="/format" element={<Formatter />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </main>
+      <Footer />
+    </>
+  );
+}
+
 export default function App() {
   return (
     <ThemeProvider>
       <BrowserRouter>
-        <ScrollToTop />
-        <Navbar />
-        <main>
-          <Routes>
-            <Route path="/" element={<Landing />} />
-            <Route path="/format" element={<Formatter />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </main>
-        <Routes>
-          <Route path="*" element={<FooterWrapper />} />
-        </Routes>
+        <AppLayout />
       </BrowserRouter>
     </ThemeProvider>
   );
-}
-
-function FooterWrapper() {
-  return <Footer />;
 }

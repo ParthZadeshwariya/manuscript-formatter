@@ -88,7 +88,7 @@ graph TD
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/your-username/manuscript-formatter.git
+git clone https://github.com/ParthZadeshwariya/manuscript-formatter.git
 cd manuscript-formatter
 ```
 
